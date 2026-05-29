@@ -299,26 +299,12 @@ export default function MapView({ days, selectedDay, selectedAttraction, onSelec
                   🕐 {activePin.hours}
                 </div>
 
-                <button
-                  className="flex items-center justify-center gap-1.5 w-full py-1.5 rounded-xl text-xs font-semibold"
-                  style={{ background: isClosed ? '#f59e0b' : accentColor, color: '#fff' }}
-                  onPointerDown={e => e.stopPropagation()}
-                  onTouchStart={e => e.stopPropagation()}
-                  onTouchEnd={e => {
-                    e.stopPropagation();
-                    e.preventDefault();
-                    window.open(activePin.mapsUrl, '_blank');
-                  }}
-                  onClick={e => {
-                    e.stopPropagation();
-                    window.open(activePin.mapsUrl, '_blank');
-                  }}
-                >
-                  <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                <div className="flex items-start gap-1.5 pt-1" style={{ borderTop: '1px solid #f0ede8' }}>
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#aaa" strokeWidth="2" style={{ flexShrink: 0, marginTop: 1 }}>
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                   </svg>
-                  Abrir no mapa
-                </button>
+                  <span className="text-[11px] leading-snug" style={{ color: '#888' }}>{activePin.address}</span>
+                </div>
               </div>
             </div>
 
