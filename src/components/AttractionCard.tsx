@@ -118,12 +118,15 @@ export default function AttractionCard({ attraction, index, isSelected, accentCo
               </div>
             )}
             <div className="flex gap-2 mt-2.5">
-              <a href={attraction.mapsUrl} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()}
+              <button
                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold shadow-sm hover:opacity-85 transition-all"
-                style={{ background: accentColor, color: '#fff' }}>
+                style={{ background: accentColor, color: '#fff' }}
+                onClick={e => { e.stopPropagation(); window.open(attraction.mapsUrl, '_blank'); }}
+                onTouchEnd={e => { e.stopPropagation(); e.preventDefault(); window.open(attraction.mapsUrl, '_blank'); }}
+              >
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                 Ver no mapa
-              </a>
+              </button>
               <button onClick={e => { e.stopPropagation(); onToggleVisited(); }}
                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all hover:opacity-80"
                 style={{ background: isVisited ? '#e0e0e0' : 'var(--bg3)', color: isVisited ? '#555' : 'var(--muted)' }}>
